@@ -1,0 +1,19 @@
+.Dashboard {
+    background-color: var(--dark);
+    color: var(--light);
+    height: 100vh;
+    width: 100vw;
+    padding: 2rem 5%;
+
+
+}
+
+.Dashboard .logo-container {
+    width: 13%;
+}
+
+.dashBody {
+    margin: 1.5rem 0;
+    display: flex;
+
+}

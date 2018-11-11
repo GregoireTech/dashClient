@@ -1,0 +1,21 @@
+.leadboard {
+    background-color: var(--dark);
+    color: var(--light);
+    width: 100vw;
+    height: 100vh;
+    padding: 1.5rem 5%;
+
+
+}
+
+.leadboard .logo-container {
+    width: 150px;
+}
+
+
+
+.leadBody {
+    margin: 1.5rem 0 0 0;
+    display: flex;
+
+}
