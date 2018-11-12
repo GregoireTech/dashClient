@@ -1,0 +1,15 @@
+.leadBox{
+    border: solid 2px var(--light);
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 2rem;
+}
+
+.leadBox-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.leadBox-body {
+    padding: 0 1.5rem;
+}

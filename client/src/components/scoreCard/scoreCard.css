@@ -1,0 +1,37 @@
+.scoreCard {
+    text-align: left;
+    margin-bottom: 0.3rem;
+}
+
+.score-title {
+    font-size: 1.1rem;
+    margin: 0;
+    vertical-align: bottom;
+}
+
+.score-container {
+    vertical-align: bottom;
+    
+    font-size: 1rem;
+}
+
+.score {
+    margin: 0;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.arrow {
+    vertical-align: middle;
+    display: inline-block;
+    height: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.unvalid {
+    color: var(--unvalid);
+}
+
+.green {
+    color: var(--green);
+}
