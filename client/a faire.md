@@ -11,3 +11,6 @@ To implement:
 !! Fix vunerability
 !! minimize: true // fix
 
+
+check mise en page google analytics
+comp = growth

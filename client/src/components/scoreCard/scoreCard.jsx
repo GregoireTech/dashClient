@@ -40,7 +40,7 @@ const scoreCard = (props) => {
     }
 
     let image = null;
-    if (props.name === 'Comp' && props.score !== 0) {
+    if (props.name === 'Growth' && props.score !== 0) {
         image = <img src={arrowUrl} alt='arrow' className='arrow'/>;
         if (props.score > 0) {
             body = '+' + body;

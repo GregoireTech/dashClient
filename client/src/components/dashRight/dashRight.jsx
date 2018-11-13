@@ -10,7 +10,7 @@ const dashRight = (props) => {
         <div className='right'>
             <Box title='Sales Overview'>
                 <ScoreCard name='Sales' unit='$' score={props.monthData.Sales} />
-                <ScoreCard name='Comp' unit='%' score={props.monthData.Comp} down={0} />
+                <ScoreCard name='Growth' unit='%' score={props.monthData.Growth} down={0} />
                 <ScoreCard name='Bonus' unit='$' score={props.monthData.Bonus} />
             </Box>
             <Box title='Catering Overview'>
