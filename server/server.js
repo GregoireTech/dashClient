@@ -1,5 +1,5 @@
 const express = require('express');
-
+const query = require('./util/queryBuilder');
 const app = express();
 
 
@@ -12,9 +12,15 @@ app.use((req,res,next) => {
 });
 
 
+const db = require('./util/database');
 
+const request = query(1);
 
-
+db.execute(request)
+    .then(result => {
+        console.log(result);
+    })
+    .catch(err => console.log(err));
 
 // Set the main route
 app.get('/', (req, res) => {
