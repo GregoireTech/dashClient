@@ -1,8 +1,24 @@
-.leadLeft{
-    width: 40%;
- }
+.leadLeft {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 0.5rem;
+}
 
-.leadLeft  .scoreCard {
+.leadBox {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.chart {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.leadLeft .scoreCard {
     text-align: left;
     width: 100%;
     display: flex;
@@ -14,7 +30,7 @@
     display: inline-block;
     vertical-align: -webkit-baseline-middle;
     vertical-align: middle;
-    margin: 0 0 0.2rem 0 ;
+    margin: 0 0 0.2rem 0;
 }
 
 .leadLeft .score {
@@ -22,5 +38,5 @@
     display: inline-block;
     vertical-align: -webkit-baseline-middle;
     vertical-align: middle;
-    margin: 0 0 0.2rem 0 ;
+    margin: 0 0 0.2rem 0;
 }

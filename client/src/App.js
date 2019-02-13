@@ -1,5 +1,8 @@
-
-import React, {Component} from 'react';
+import React, {
+    Component
+} from 'react';
+//import jsPDF from 'jspdf';
+//import html2canvas from 'html2canvas';
 import './App.css';
 
 import axios from './assets/instances';
@@ -19,7 +22,7 @@ class App extends Component {
         monthData: null
     };
 
-    componentDidUpdate () {
+    componentDidUpdate() {
         const nav = document.getElementById('nav');
         if (nav) {
             setTimeout(function () {
@@ -31,6 +34,23 @@ class App extends Component {
 
 
     }
+
+    /*    downloadViewHandler() {
+            // select element to print
+            const view = document.getElementById('Dashboard');
+            //use html2canvas to convert DOM into SVG
+            html2canvas(view)
+                .then((canvas) => {
+                    // convert SVG to png
+                    const imgData = canvas.toDataURL('image/png');
+                    //convert PNG to PDF
+                    const pdf = new jsPDF();
+                    pdf.addImage(imgData, 'PNG', 0, 0);
+                    // download PDF
+                    pdf.save("download.pdf"); 
+                });
+        }
+    */
 
     setInitialDate() {
         let date = new Date();
@@ -50,13 +70,16 @@ class App extends Component {
             "Nov",
             "Dec"
         ];
+        if (month <= 0) month = 1;
         month = monthNames[month - 1];
         date = month + ' ' + JSON.stringify(year);
         return date;
     }
 
     usernameChanged(username) {
-        this.setState({user: username})
+        this.setState({
+            user: username
+        })
     }
 
     dateChangedHandler(event) {
@@ -67,13 +90,19 @@ class App extends Component {
         axios(this.state.user)
             .get()
             .then(response => {
-                this.setState({data: response.data});
+                this.setState({
+                    data: response.data
+                });
                 this.setMonthData(this.setInitialDate());
-                this.setState({loaded: true});
+                this.setState({
+                    loaded: true
+                });
             })
             .catch(error => {
                 alert(error.message);
-                this.setState({loaded: true});
+                this.setState({
+                    loaded: true
+                });
             });
     }
 
@@ -81,7 +110,9 @@ class App extends Component {
         if (this.state.user !== 'Leadership') {
             for (let i = 0; i < this.state.data.length; i++) {
                 if (this.state.data[i].Month === month) {
-                    this.setState({monthData: this.state.data[i]});
+                    this.setState({
+                        monthData: this.state.data[i]
+                    });
                 }
             }
         } else {
@@ -92,21 +123,31 @@ class App extends Component {
 
                 for (var ii = 0; ii < locData.length; ii++) {
                     if (locData[ii].Month === month) {
-                        data.push({name: name, data: locData[ii]})
+                        data.push({
+                            name: name,
+                            data: locData[ii]
+                        })
                     }
                 }
             }
-            this.setState({monthData: data});
+            this.setState({
+                monthData: data
+            });
         }
     }
 
     authOK() {
-        this.setState({isAuthed: true});
+        this.setState({
+            isAuthed: true
+        });
         this.getData();
     }
 
     logout() {
-        this.setState({isAuthed: false, loaded: false});
+        this.setState({
+            isAuthed: false,
+            loaded: false
+        });
     }
 
     render() {
@@ -115,50 +156,87 @@ class App extends Component {
         //     .logout
         //     .bind(this)}/>;
 
-        let body = <AuthForm
-            userChanged={(username) => this.usernameChanged(username)}
-            authenticated={this
+        let body = < AuthForm
+        userChanged = {
+            (username) => this.usernameChanged(username)
+        }
+        authenticated = {
+            this
             .authOK
-            .bind(this)}/>
+            .bind(this)
+        }
+        />
 
         if (this.state.isAuthed) {
             if (!this.state.loaded) {
-                body = <Spinner title='Retrieving data, please wait...'/>
+                body = < Spinner title = 'Retrieving data, please wait...' / >
             } else {
                 if (this.state.user === 'Leadership') {
-                    body = <Aux>
-                        
-                        <Leadership
-                            dateChanged={this
-                            .dateChangedHandler
-                            .bind(this)}
-                            leadData={this.state.data[0]}
-                            monthData={this.state.monthData}
-                            defMonth={this.setInitialDate()}/>
-                    </Aux>
+                    body = < Aux >
+
+                        <
+                        Leadership
+                    dateChanged = {
+                        this
+                        .dateChangedHandler
+                        .bind(this)
+                    }
+                    leadData = {
+                        this.state.data[0]
+                    }
+                    monthData = {
+                        this.state.monthData
+                    }
+                    defMonth = {
+                        this.setInitialDate()
+                    }
+                    /> <
+                    /Aux>
                 } else {
-                    body = <Aux>
-                        
-                        <Dashboard
-                            dateChanged={this
-                            .dateChangedHandler
-                            .bind(this)}
-                            location={this.state.user}
-                            data={this.state.data}
-                            monthData={this.state.monthData}
-                            defMonth={this.setInitialDate()}/>
-                    </Aux>
+                    body = < Aux >
+
+                        <
+                        Dashboard
+                    dateChanged = {
+                        this
+                        .dateChangedHandler
+                        .bind(this)
+                    }
+                    location = {
+                        this.state.user
+                    }
+                    data = {
+                        this.state.data
+                    }
+                    monthData = {
+                        this.state.monthData
+                    }
+                    defMonth = {
+                        this.setInitialDate()
+                    }
+                    /> <
+                    /Aux>
                 }
 
             }
         }
-        return (
-            <div className="App">
-                {this.state.loaded? <Navbar logout={this.logout.bind(this)}/>: null }
-                {body}
-            </div>
-        );
+        return ( <
+            div className = "App" > {
+                this.state.loaded ?
+                <
+                Navbar
+                logout = {
+                    this.logout.bind(this)
+                }
+                download = {
+                    this.downloadViewHandler
+                }
+                />: null } {
+                    body
+                } <
+                /div>
+            );
+        }
     }
-}
 
-export default App;
+    export default App;

@@ -6,7 +6,7 @@ import './leadItem.css';
 
 const leadItem = (props) => {
     return (
-        <div className='leadItem'>
+        <div className='leadItem'  id={props.title}>
             <h2 className='leadItem-title'>{props.title}</h2>
             <div className='leadItem-body'>
                 {props.children}

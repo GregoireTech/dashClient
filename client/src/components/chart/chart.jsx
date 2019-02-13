@@ -25,7 +25,7 @@ const SimpleLineChart = (props) => {
     const setData = () => {
         let data = [];
         let index = getIndex();
-        let startIndex = index - 5;
+        let startIndex = index - 11;
         for (var ii = startIndex; ii<= index; ii++){
             let monthName = props.data[ii].Month.substring(0,3);
             data.push({
@@ -40,8 +40,8 @@ const SimpleLineChart = (props) => {
     const setMinMax = (data) =>{
         let dataArray = [];
         for (let i = 0; i<data.length; i++){
-            data[i].y1 !== '' ? dataArray.push(data[i].y1) : null;
-            data[i].y0 !== '' ? dataArray.push(data[i].y0) : null;
+            if (data[i].y1 !== '') {dataArray.push(data[i].y1)};
+            if (data[i].y0 !== '') {dataArray.push(data[i].y0)};
         }
         const yMax = Math.round((Math.max.apply(null, dataArray)*1.1)/10000)*10000;
         const yMin = Math.round((Math.min.apply(null, dataArray)*0.9)/10000)*10000;
@@ -53,7 +53,7 @@ const SimpleLineChart = (props) => {
     const range = setMinMax(data);
     
     return (
-        <div className='chart'>
+        <div id="chart" className='chart'>
             <h2 className='chart-title'>{props.title}</h2>
             <div className='chart-body'>
                 <ResponsiveContainer width="100%" height="100%">

@@ -1,23 +1,23 @@
-.dashboard-header {
-    width: 100%;
+.dashHead {
     display: flex;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-
+.logo-container {
+    text-align: left;
+}
 .logo {
-    width: 100%;
-    height: 100%;
+    height: 75%;
+    width:75%;
 }
 
 
 .dashboard-title {
     width: 60%;
-    margin: 0 5%;
-    padding: 30px;
-    font-size: 2rem;
+    padding: 3vh;
+    font-size: 1.6rem;
     font-weight: bold;
     background-color: var(--medium);
     text-transform: capitalize;
@@ -25,14 +25,19 @@
 
 .date-picker {
     width: 15%;
-    padding: 30px 20px;
-    font-size: 1.2rem;
+    padding: 3vh 20px;
+    font-size: 1.3rem;
     background-color: var(--medium);
+    cursor: pointer;
+}
+
+.date-picker select {
+    cursor: pointer;
 }
 
 .select {
     background: var(--medium);
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--light);
     width: 100%;
     border: none;

@@ -6,12 +6,12 @@ const navbar = (props) => {
 
     return (
         <div id='nav' className='navbar'>
-            {/* <div className='menu'>
+            <div className='menu'>
                 <ul className='menuItems'>
-                    <li onClick={props.print}>Print</li>
-                    <li onClick={props.download}>Download</li>
+                    {/* <li onClick={props.print}>Print</li> */}
+                    {/* <li onClick={props.download}>Download</li> */}
                 </ul>
-            </div> */}
+            </div> 
             <div className='logoutBtn' onClick={props.logout}>Logout</div>
 
         </div>

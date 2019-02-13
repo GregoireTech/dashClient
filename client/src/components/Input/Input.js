@@ -16,7 +16,7 @@ const input = (props) => {
             </select>);
         }
         case ('textarea'): {
-           return( <textarea id={props.name} value={props.value} onChange={props.changed} rows={props.rows} required className="form-control">
+            return( <textarea id={props.name} value={props.value} onChange={props.changed} rows={props.rows} required className="form-control">
             {props.placeholder} 
             </textarea>);
         }

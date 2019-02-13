@@ -4,8 +4,6 @@
     width: 100vw;
     height: 100vh;
     padding: 1.5rem 5%;
-
-
 }
 
 .leadboard .logo-container {
@@ -16,6 +14,22 @@
 
 .leadBody {
     margin: 1.5rem 0 0 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
 
+}
+
+.leadLeft {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.leadRight {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }

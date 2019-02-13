@@ -3,6 +3,10 @@ import React from 'react';
 import './scoreCard.css';
 
 const scoreCard = (props) => {
+// scorecard function which creates a styled components depending on KPI type
+//parameters (up, down = (int) threshold for score type)
+// score(int) value to display
+// unit (str) score unit to display
 
     let classes = 'score';
     let arrowUrl = require('../../assets/images/up.svg');
@@ -27,6 +31,9 @@ const scoreCard = (props) => {
     }
 
     const numberWithCommas = (x) => {
+        // function formats dollar amounts with comas(ex: 10000 => 10,000)
+        // parameter: x (int) amount format
+        // returns formatted x formatted (str)
         return x
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");

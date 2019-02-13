@@ -1,12 +1,15 @@
 .scoreCard {
     text-align: left;
     margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .score-title {
     font-size: 1.1rem;
     margin: 0;
-    vertical-align: bottom;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .score-container {

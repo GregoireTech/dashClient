@@ -3,7 +3,7 @@ import './box.css';
 
 const box = (props) => {
     return (
-        <div className='box'>
+        <div id={props.name} className='box'>
             <h2 className='box-title'>{props.title}</h2>
             <div className='box-body'>
                 {props.children}

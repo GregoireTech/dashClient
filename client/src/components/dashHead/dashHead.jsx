@@ -9,7 +9,7 @@ const dashHead = (props) => {
     const logoUrl = require('../../assets/images/logo.svg');
 
     return (
-        <div id='head' className='dashboard-header'>
+        <div id='head' className='dashHead'>
             <div className='logo-container'>
                 <img src={logoUrl} className='logo' alt="Jimmy John's logo"/>
             </div>

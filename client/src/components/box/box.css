@@ -1,4 +1,4 @@
-.box{
+/* .box{
     border: solid 2px var(--light);
     margin: 0 0 1rem 0;
     padding: 0.5rem 2rem;
@@ -13,4 +13,22 @@
 .box-body {
     display: flex;
     justify-content: space-between;
+} */
+
+.box{
+    border: solid 2px var(--light);
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+.box-title {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    text-align: left;
+}
+
+.box-body {
+    padding: 0;
 }
