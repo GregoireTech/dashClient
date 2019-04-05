@@ -26,7 +26,7 @@ const SimpleLineChart = (props) => {
                 tmpMonthIndex = 1;
                 tmpYear ++;
             }
-            console.log(tmpMonthIndex)
+            //console.log(tmpMonthIndex)
             const tmpMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear}`;
             const tmpPrevMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear -1}`;
             data.push({
@@ -51,7 +51,7 @@ const SimpleLineChart = (props) => {
         return [yMin, yMax];
     }
 
-    let data = []
+    let data = [];
     try {
         data = setData();
     } catch (e) {

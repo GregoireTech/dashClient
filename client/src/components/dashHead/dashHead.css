@@ -7,10 +7,12 @@
 
 .logo-container {
     text-align: left;
+    z-index: 1000000;
 }
 .logo {
     height: 75%;
     width:75%;
+    z-index: 1000000;
 }
 
 

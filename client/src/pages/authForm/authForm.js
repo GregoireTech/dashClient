@@ -48,7 +48,7 @@ class authForm extends Component {
             .then(response => {
                 console.log(response)
                 if (response.data.authStatus) {
-                    this.props.authenticated(this.state.user, response.data.token);
+                    this.props.authenticated(this.state.userId, response.data.token);
                 } else {
                     this.authFailHandler(spinner);
                 }

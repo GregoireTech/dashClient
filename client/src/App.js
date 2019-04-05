@@ -43,7 +43,7 @@ class App extends Component {
         const monthIndex = date.getMonth();
         const month = getMonthName(monthIndex);
         date = month + ' ' + JSON.stringify(year);
-        return "Jan 2019";
+        return date;
     }
 
     usernameChanged(username) {
@@ -106,6 +106,7 @@ class App extends Component {
     }
 
     authOK(userName, _token) {
+        console.log(userName)
         this.setState({
             isAuthed: true,
             user: userName,

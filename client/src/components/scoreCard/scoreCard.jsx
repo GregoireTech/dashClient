@@ -7,7 +7,7 @@ const scoreCard = (props) => {
 //parameters (up, down = (int) threshold for score type)
 // score(int) value to display
 // unit (str) score unit to display
-
+console.log(props.score)
     let classes = 'score';
     let arrowUrl = require('../../assets/images/up.svg');
 
@@ -59,9 +59,10 @@ const scoreCard = (props) => {
             classes = 'score green';
         }
 
-    if (props.score === ""){
+    if (typeof(props.score) !== "string" && typeof(props.score) !== "number" ){
         classes = 'score';
         body = 'No Data';
+        image = null;
     }
 
     return (
