@@ -31,8 +31,7 @@ class authForm extends Component {
     };
 
     authFailHandler(spinner) {
-        spinner.classList
-            .add('noShow');
+        spinner.classList.add('noShow');
         const unvalid = document.getElementById('unvalid');
         unvalid.classList.remove('noShow');
         unvalid.classList.remove("shake");
@@ -47,10 +46,9 @@ class authForm extends Component {
         axios(this.state.userId, this.state.password)
             .get()
             .then(response => {
-                if (response.data === true) {
-                    this
-                        .props
-                        .authenticated(this.state.user);
+                console.log(response)
+                if (response.data.authStatus) {
+                    this.props.authenticated(this.state.user, response.data.token);
                 } else {
                     this.authFailHandler(spinner);
                 }

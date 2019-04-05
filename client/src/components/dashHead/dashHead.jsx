@@ -1,11 +1,11 @@
 import React from 'react';
 import './dashHead.css'
 
-import {months} from '../../assets/data';
+import {getMonthString} from '../../helpers/monthMappingTable';
 import Input from '../Input/Input';
 
 const dashHead = (props) => {
-
+    const monthString = getMonthString();
     const logoUrl = require('../../assets/images/logo.svg');
 
     return (
@@ -15,7 +15,7 @@ const dashHead = (props) => {
             </div>
             <div className='dashboard-title'>{props.name} Monthly Activity Report</div>
             <div className='date-picker'>
-                <Input className='date-select' inputType='select' options={months} changed={props.dateChanged} default={props.defMonth} />
+                <Input className='date-select' inputType='select' options={monthString} changed={props.dateChanged} default={props.defMonth} />
             </div>
         </div>
     );

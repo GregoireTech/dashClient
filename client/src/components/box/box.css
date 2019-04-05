@@ -17,10 +17,7 @@
 
 .box{
     border: solid 2px var(--light);
-    margin: 0 0 1rem 0;
     padding: 0.5rem 2rem;
-    height: 100%;
-    width: 100%;
 }
 
 .box-title {
@@ -28,6 +25,7 @@
     margin: 0.5rem 0;
     text-align: left;
 }
+
 
 .box-body {
     padding: 0;

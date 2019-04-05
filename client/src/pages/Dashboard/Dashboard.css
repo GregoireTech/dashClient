@@ -2,55 +2,54 @@
     background-color: var(--dark);
     color: var(--light);
 
-    padding: 2rem;
     width: 100%;
     height: 100vh;
     display: grid;
     
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.75fr 1.125fr 1.125fr;
+    grid-template-columns: 0.1rem 1fr 1fr 1fr 0.1rem;
+    grid-template-rows: 0.75fr 1.125fr 1.125fr 0.1rem;
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
 }
 
 .Dashboard #head {
-    grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 
 .Dashboard #chart {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-.Dashboard #evaluation {
-    grid-column-start: 3;
+    grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 
-.Dashboard #sales {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
+.Dashboard #evaluation {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
 
-.Dashboard #catering {
+.Dashboard #sales {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-.Dashboard #costs {
+.Dashboard #catering {
     grid-column-start: 3;
     grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.Dashboard #costs {
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
 }

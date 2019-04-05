@@ -7,17 +7,16 @@ import Box from '../../components/box/box';
 import './Dashboard.css';
 
 const dashboard = (props) => {
-console.log(props);
     return (
         <div className='Dashboard' id='Dashboard'>
             <Header
                 name={props.location}
                 defMonth={props.defMonth}
                 dateChanged={props.dateChanged} />
-            <Box name='evaluation' title='Evaluation'>
+            {/* <Box name='evaluation' title='Evaluation'>
                 <ScoreCard name='Date' unit='' score={props.monthData.EvaluationDate} />
                 <ScoreCard name='Score' unit='%' score={props.monthData.LastScoreP} down={93.75} />
-            </Box>
+            </Box> */}
             <Chart title='Sales Graph ($)' data={props.data} month={props.monthData.Month} />
             
             <Box name='sales' title='Sales Overview'>
@@ -35,9 +34,8 @@ console.log(props);
             <Box name='costs' title='Costs Overview'>
                 <ScoreCard name='Food Cost' unit='%' score={props.monthData.FoodCostP} up={0.22} down={0.20} />
                 <ScoreCard name='Labor Cost' unit='%' score={props.monthData.LaborCostP} />
-                <ScoreCard name='Overrings' unit='$' score={props.monthData.Overrings} />
                 <ScoreCard name='Sampling' unit='$' score={props.monthData.Sampling} />
-            </Box>
+            </Box> 
         
         </div>
 

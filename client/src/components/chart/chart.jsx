@@ -10,29 +10,31 @@ import {
     Legend
 } from 'recharts';
 
+import {getMonthIndex, getMonthName} from '../../helpers/monthMappingTable';
 import './chart.css';
 
 const SimpleLineChart = (props) => {
 
-    const getIndex = () => {
-        for (var i = 0; i < props.data.length; i++) {
-            if (props.data[i].Month === props.month) {
-                return i;
-            }
-        }
-    }
-
     const setData = () => {
         let data = [];
-        let index = getIndex();
-        let startIndex = index - 11;
-        for (var ii = startIndex; ii<= index; ii++){
-            let monthName = props.data[ii].Month.substring(0,3);
+        const selectedMonth = props.month.split(" ")[0];
+        const selectedYear = parseInt(props.month.split(" ")[1]);
+        let tmpMonthIndex = getMonthIndex(selectedMonth);
+        let tmpYear = selectedYear - 1;
+        while((tmpMonthIndex <= getMonthIndex(selectedMonth) && tmpYear <= selectedYear) || (tmpYear < selectedYear) ){
+            if (tmpMonthIndex > 12) {
+                tmpMonthIndex = 1;
+                tmpYear ++;
+            }
+            console.log(tmpMonthIndex)
+            const tmpMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear}`;
+            const tmpPrevMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear -1}`;
             data.push({
-                name: monthName,
-                y1: Math.round(props.data[ii].Sales),
-                y0: Math.round(props.data[ii-12].Sales)
+                name: getMonthName(tmpMonthIndex),
+                y1: Math.round(props.data[tmpMonthYear].Sales),
+                y0: Math.round(props.data[tmpPrevMonthYear].Sales)
             });
+            tmpMonthIndex ++;
         }
         return data;
     }
@@ -49,7 +51,13 @@ const SimpleLineChart = (props) => {
         return [yMin, yMax];
     }
 
-    const data = setData();
+    let data = []
+    try {
+        data = setData();
+    } catch (e) {
+        console.log(e)
+    }
+
     const range = setMinMax(data);
     
     return (

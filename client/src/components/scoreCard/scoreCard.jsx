@@ -59,6 +59,10 @@ const scoreCard = (props) => {
             classes = 'score green';
         }
 
+    if (props.score === ""){
+        classes = 'score';
+        body = 'No Data';
+    }
 
     return (
         <div className='scoreCard'>

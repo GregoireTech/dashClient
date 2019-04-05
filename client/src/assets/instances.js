@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const instance = (user) => {
-    return (axios.create({baseURL: `https://script.google.com/macros/s/AKfycbxeNMvqCvJxtUUWd2Om9h0_65gy8GJalsjLOBn-MsZ9yHjy6VY/exec?${user}`}));
+const instance = (token) => {
+    return (axios.create({baseURL: `http://localhost:8888/data?token=${token}`}));
 };
 
 export default instance;
