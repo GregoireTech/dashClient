@@ -6,8 +6,9 @@ import Right from '../../components/leadRight/leadRight';
 import './Leadership.css';
 
 class Leadership extends Component {
-
+    
     render() {
+        console.log(this.props)
         return (
             <div className='leadboard'>
                 <Header
@@ -15,8 +16,8 @@ class Leadership extends Component {
                     defMonth={this.props.defMonth}
                     dateChanged={this.props.dateChanged}/>
                 <div className='leadBody'>
-                    <Left monthData={this.props.monthData[0].data}  data={this.props.leadData.data}/>
-                    <Right monthData={this.props.monthData} />
+                    <Left monthData={this.props.monthData['Leadership']}  data={this.props.leadData}/>
+                    <Right monthData={this.props.monthData} /> 
                 </div>
             </div>
         )
@@ -24,4 +25,4 @@ class Leadership extends Component {
 
 }
 
-export default Leadership
+export default Leadership;

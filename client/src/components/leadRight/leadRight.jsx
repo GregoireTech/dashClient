@@ -7,19 +7,21 @@ import LeadItem from '../leadItem/leadItem';
 
 const dashRight = (props) => {
 
-    
-    const monthData = props.monthData.splice(1, 6);
-
-    let items = monthData.map((restaurant, index) => 
-    <LeadItem title={restaurant.name} key={index}>
-        <ScoreCard name='Sales' unit='$' score={restaurant.data.Sales}/>
-        <ScoreCard name='Comp' unit='%' score={restaurant.data.Comp} down={0}/>
-        <ScoreCard name='Catering' unit='$' score={restaurant.data.Catering}/>
-        <ScoreCard name='Food Cost' unit='%' score={restaurant.data.FoodCostP}up={0.23} down={0.21}/>
-        <ScoreCard name='Labor Cost' unit='%' score={restaurant.data.LaborCostP}/>
-    </LeadItem>
-    );
-
+    let items = [];
+    for (const restaurant in props.monthData) {
+        const restaurantData = props.monthData[restaurant];
+        if (restaurant !== 'Leadership'){
+        items.push(
+            <LeadItem title={restaurant} key={items.length + 'key'}>
+                <ScoreCard name='Sales' unit='$' score={restaurantData.Sales}/>
+                <ScoreCard name='Comp' unit='%' score={restaurantData.Comp} down={0}/>
+                <ScoreCard name='Catering' unit='$' score={restaurantData.Catering}/>
+                <ScoreCard name='Food Cost' unit='%' score={restaurantData.FoodCostP}up={0.23} down={0.21}/>
+                <ScoreCard name='Labor Cost' unit='%' score={restaurantData.LaborCostP}/>
+            </LeadItem>
+            );
+        }
+    }
     return (
         <div className='leadRight'>
         {items}

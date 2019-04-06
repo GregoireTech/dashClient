@@ -61,17 +61,25 @@ class App extends Component {
             .get()
             .then(response => {
                 if (response.data.data && response.data.data !== []){
-                    this.setState({
-                        data: response.data.data
-                    });
-                    this.setMonthData(this.setInitialDate());
-                    this.setState({
-                        loaded: true
-                    });
+                    try {
+                        this.setState({
+                            data: response.data.data
+                        });
+                        this.setMonthData(this.setInitialDate());
+                        this.setState({
+                            loaded: true
+                        });
+                    } catch (e) {
+                        console.log(e)
+                        
+                        this.setState({
+                            loaded: true
+                        });
+                    }
+
                 }
             })
             .catch(error => {
-                alert(error.message);
                 this.setState({
                     loaded: true
                 });
@@ -79,25 +87,17 @@ class App extends Component {
     }
 
     setMonthData(month) {
+        let data = {};
         if (this.state.user !== 'Leadership' && this.state.data[month]) {
                 this.setState({
                     monthData: this.state.data[month]
                 });
             
-        } else {
-            let data = [];
-            for (var i = 0; i < this.state.data.length; i++) {
-                let name = this.state.data[i].name;
-                let locData = this.state.data[i].data;
-
-                for (var ii = 0; ii < locData.length; ii++) {
-                    if (locData[ii].Month === month) {
-                        data.push({
-                            name: name,
-                            data: locData[ii]
-                        })
-                    }
-                }
+        } else if (this.state.user === 'Leadership' && this.state.data['Leadership']) {
+            for (const key in this.state.data) {
+                const dataItem = this.state.data[key];
+                console.log('in leadership' + dataItem)
+                data[dataItem[month].Company] = dataItem[month];
             }
             this.setState({
                 monthData: data
@@ -135,7 +135,7 @@ class App extends Component {
                     body = (<Aux>
                             <Leadership
                                 dateChanged = {this.dateChangedHandler.bind(this)}
-                                leadData = {this.state.data[0]}
+                                leadData = {this.state.data['Leadership']}
                                 monthData = {this.state.monthData}
                                 defMonth = {this.setInitialDate()} /> 
                             </Aux>);

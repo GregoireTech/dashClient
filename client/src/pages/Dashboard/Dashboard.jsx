@@ -7,7 +7,7 @@ import Box from '../../components/box/box';
 import './Dashboard.css';
 
 const dashboard = (props) => {
-    console.log(props)
+    //console.log(props)
     return (
         <div className='Dashboard' id='Dashboard'>
             <Header
