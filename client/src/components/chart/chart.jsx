@@ -28,11 +28,11 @@ const SimpleLineChart = (props) => {
             }
             //console.log(tmpMonthIndex)
             const tmpMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear}`;
-            const tmpPrevMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear -1}`;
+            //const tmpPrevMonthYear = `${getMonthName(tmpMonthIndex)} ${tmpYear -1}`;
             data.push({
                 name: getMonthName(tmpMonthIndex),
                 y1: Math.round(props.data[tmpMonthYear].Sales),
-                y0: Math.round(props.data[tmpPrevMonthYear].Sales)
+                y0: Math.round(props.data[tmpMonthYear].Objective)
             });
             tmpMonthIndex ++;
         }

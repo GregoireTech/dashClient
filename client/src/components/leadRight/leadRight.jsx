@@ -14,7 +14,7 @@ const dashRight = (props) => {
         items.push(
             <LeadItem title={restaurant} key={items.length + 'key'}>
                 <ScoreCard name='Sales' unit='$' score={restaurantData.Sales}/>
-                <ScoreCard name='Comp' unit='%' score={restaurantData.Comp} down={0}/>
+                <ScoreCard name='Growth' unit='%' score={restaurantData.Growth} down={0}/>
                 <ScoreCard name='Catering' unit='$' score={restaurantData.Catering}/>
                 <ScoreCard name='Food Cost' unit='%' score={restaurantData.FoodCostP}up={0.23} down={0.21}/>
                 <ScoreCard name='Labor Cost' unit='%' score={restaurantData.LaborCostP}/>

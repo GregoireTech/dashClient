@@ -11,7 +11,7 @@ const dashLeft = (props) => {
         <div className='leadLeft'>
             <LeadBox title='Overall Month overview'>
                 <ScoreCard name='Sales' unit='$' score={props.monthData.Sales}/>
-                <ScoreCard name='Comp' unit='%' score={props.monthData.Comp} down={0}/>
+                <ScoreCard name='Growth' unit='%' score={props.monthData.Growth} down={0}/>
                 <ScoreCard name='Catering' unit='$' score={props.monthData.Catering}/>
                 <ScoreCard name='Food Cost' unit='%' score={props.monthData.FoodCostP} up={0.23} down={0.21}/>
                 <ScoreCard name='Labor Cost' unit='%' score={props.monthData.LaborCostP}/>
