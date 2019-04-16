@@ -13,6 +13,7 @@ const dashRight = (props) => {
         if (restaurant !== 'Leadership'){
         items.push(
             <LeadItem title={restaurant} key={items.length + 'key'}>
+                <ScoreCard name='Objective' unit='$' score={restaurantData.Objective}/>
                 <ScoreCard name='Sales' unit='$' score={restaurantData.Sales}/>
                 <ScoreCard name='Growth' unit='%' score={restaurantData.Growth} down={0}/>
                 <ScoreCard name='Catering' unit='$' score={restaurantData.Catering}/>

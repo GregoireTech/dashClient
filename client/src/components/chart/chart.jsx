@@ -14,7 +14,7 @@ import {getMonthIndex, getMonthName} from '../../helpers/monthMappingTable';
 import './chart.css';
 
 const SimpleLineChart = (props) => {
-
+console.log(props.data)
     const setData = () => {
         let data = [];
         const selectedMonth = props.month.split(" ")[0];

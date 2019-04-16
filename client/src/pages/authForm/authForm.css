@@ -33,9 +33,20 @@
     max-width: 470px;
   }
 
+    
+  .form input {
+    margin: 1rem 0 0 0;
+    width: 100%;
+    height: 1.5rem;
+    outline: none;
+    border: 1.5px solid var(--medium);
+    border-radius: 2px;
+    padding-left: 5px;
+  }
+
   .unvalid {
     color: var(--unvalid);
-    margin: 0;
+    margin: 1rem 0;
   }
 
   .noShow {
@@ -82,15 +93,11 @@
   
   @media (min-width: 40rem) {
 
-    .form .authForm-form {
+    .form  {
       margin: 2rem auto;
     }
   
-    .form .authForm-form .input {
-      margin: 0.5rem 0 0 0;
-    }
-  
-    .form .authForm-form .textarea {
+    .form .textarea {
       margin: 0.5rem 0;
     }
   

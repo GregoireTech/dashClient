@@ -60,7 +60,8 @@ class App extends Component {
         axios(this.state.token)
             .get()
             .then(response => {
-                if (response.data.data && response.data.data !== []){
+                console.log(response)
+                if (response.data.data && response.data.data !== [] && response.data.data !== {}){
                     try {
                         this.setState({
                             data: response.data.data
@@ -88,6 +89,7 @@ class App extends Component {
 
     setMonthData(month) {
         let data = {};
+        console.log(this.state.data)
         if (this.state.user !== 'Leadership' && this.state.data[month]) {
                 this.setState({
                     monthData: this.state.data[month]
