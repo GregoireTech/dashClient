@@ -1,26 +1,22 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/server/node_modules
+/node_modules
 /.pnp
 .pnp.js
-
-# client
-/client/node_modules
 
 # testing
 /coverage
 
 # production
 /build
-
-#deployment
-/firebase
 firebase.json
+/.firebase
+.firebaserc
 
-#instances
-/src/assets/instances.js
+# endpoints
 /src/assets/login.js
+/src/assets/instances.js
 
 # misc
 .DS_Store
