@@ -23,20 +23,6 @@ class App extends Component {
         token: null
     };
 
-    componentDidUpdate() {
-        const nav = document.getElementById('nav');
-        if (nav) {
-            setTimeout(function () {
-                nav
-                    .classList
-                    .add('hidden');
-            }, 1500);
-        };
-
-
-    }
-
-
     setInitialDate() {
         let date = new Date();
         const year = date.getFullYear();

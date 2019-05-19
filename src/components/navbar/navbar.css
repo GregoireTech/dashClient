@@ -1,28 +1,14 @@
 .navbar {
     z-index: 1000;
-    position: fixed;
-    top : 0;
-    left: 0;
-    width: 100vw;
+    height: 5vh;
+
     background: var(--dark);
-    border-bottom: solid 1px var(--light);
     padding: 0.5rem 2rem 0.5rem 0;
     display: flex;
     justify-content: flex-end;
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
+    font-size: 1.1rem;
 
 }
-.hidden {
-    opacity: 0;
-}
-
-.navbar:hover {
-    opacity: 1;
-}
-
 
 .navbar .logoutBtn {
     display: inline-block;
@@ -44,13 +30,18 @@
     box-shadow: none;
 }
 
+.menu {
+    color: var(--light);
+    font-size: 1.2rem;
+}
+
+
+
 .navbar ul {
     vertical-align: middle;
     vertical-align: -webkit-baseline-middle;
     display: inline-block;
     list-style: none;
-    color: var(--light);
-    font-size: 1.1rem;
     padding: 0;
     margin: 0 3rem;
 }
@@ -64,3 +55,4 @@
     cursor: pointer;
     color: white;
 }
+

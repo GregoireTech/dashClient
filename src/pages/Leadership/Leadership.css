@@ -3,13 +3,13 @@
 .leadboard {
     background-color: var(--dark);
     color: var(--light);
-    min-height: 100vh;
+    min-height: 90vh;
 
 
 }
 
 .leadboard .dashHead {
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .leadboard .logo-container {
@@ -19,7 +19,7 @@
 
 
 .leadBody {
-    margin: 1.5rem 0 0 0;
+    margin: 1rem 0 0 0;
     display: grid;
     grid-template-columns: 1rem 1fr 2fr 1rem;
     grid-template-rows: 1fr;
