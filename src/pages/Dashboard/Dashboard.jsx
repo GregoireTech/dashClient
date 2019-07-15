@@ -21,10 +21,10 @@ const dashboard = (props) => {
             <Chart title='Sales Graph ($)' data={props.data} month={props.monthData.Month} />
             
             <Box name='sales' title='Sales Overview'>
-                <ScoreCard name='Objective' unit='$' score={props.monthData.Objective} />
+                <ScoreCard name='Target' unit='$' score={props.monthData.Objective} />
                 <ScoreCard name='Sales' unit='$' score={props.monthData.Sales} />
                 <ScoreCard name='Growth' unit='%' score={props.monthData.Growth} down={0} />
-                <ScoreCard name='Bonus' unit='$' score={props.monthData.Bonus} />
+                <ScoreCard name='Bonus' unit='$' score={200 + props.monthData.Bonus} />
             </Box>
             
             <Box name='catering' title='Catering Overview'>
