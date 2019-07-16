@@ -1,0 +1,88 @@
+#authForm {
+    position: relative;
+    z-index: 500;
+    height: 100vh;
+    width: 100vw;
+    background: url('../../assets/images/chicago.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form {
+    width: 600px;
+    padding: 30px;
+    background: white;
+    box-shadow: 3px 6px 8px 4px var(--dark);
+}
+
+.form .section-title {
+    margin: 0rem 0 2.5rem 0;
+    color: var(--medium);
+}
+
+.form form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 470px;
+}
+
+
+
+.unvalid {
+    color: var(--unvalid);
+    margin: 1rem 0;
+}
+
+.noShow {
+    visibility: hidden;
+
+}
+
+@media (min-width: 40rem) {
+
+    .form {
+        margin: 2rem auto;
+    }
+
+    .form .textarea {
+        margin: 0.5rem 0;
+    }
+
+}
+
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

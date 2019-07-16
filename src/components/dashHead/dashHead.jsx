@@ -2,7 +2,7 @@ import React from 'react';
 import './dashHead.css'
 
 import {getMonthString} from '../../helpers/monthMappingTable';
-import Input from '../Input/Input';
+import Input from '../UI/Input/Input';
 
 const dashHead = (props) => {
     const monthString = getMonthString();
