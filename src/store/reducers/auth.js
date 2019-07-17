@@ -3,7 +3,7 @@ import { updateObject } from '../../helpers/utility';
 
 const initialState = {
     token: null,
-    userId: null,
+    username: null,
     error: null,
     loading: false,
     authRedirectPath: '/'
@@ -17,8 +17,8 @@ const authSuccess = (state, action) => {
     return updateObject(state, { 
         error: null, 
         loading: false,
-        token: action.idToken,
-        userId: action.userId
+        token: action.payload.token,
+        username: action.payload.username
     });
 };
 
@@ -32,7 +32,7 @@ const authFailed = (state, action) => {
 const authLogout = (state) => {
     return updateObject(state, {
         token: null,
-        userId: null,
+        username: null
     });
 };
 

@@ -10,11 +10,13 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId) => {
+export const authSuccess = (username, token) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        idToken: token,
-        userId: userId
+        payload: {
+            username: username,
+            token: token
+        } 
     };
 };
 
@@ -37,7 +39,6 @@ export const checkAuthTimeout = (expirationTime) => {
 export const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('expirationDate')
-    localStorage.removeItem('userId')
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -47,7 +48,7 @@ export const auth = (username, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
         const loginUrl = getLoginUrl(username, password);
-        console.log(loginUrl)
+        //console.log(loginUrl)
         axios.get(loginUrl)
         .then(response => {
             console.log(response)
@@ -63,8 +64,8 @@ export const auth = (username, password, isSignup) => {
                 const expirationDate = new Date(new Date().getTime() + response.data.expiresIn*1000) 
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('expirationDate', expirationDate );
-                dispatch(authSuccess(response.data.token));
-                return getData(username, response.data.token);
+                dispatch(authSuccess(username, response.data.token));
+                dispatch(getData(username, response.data.token));
                 //dispatch(checkAuthTimeout(response.data.expiresIn));
             } else {
                     dispatch(authFailed('error is login unknown'));

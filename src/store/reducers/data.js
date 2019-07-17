@@ -2,11 +2,11 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../helpers/utility';
 
 const initialState = {
-    token: null,
-    userId: null,
-    error: null,
+    monthData: null,
+    data: null,
+    selectedMonth: null,
     loading: false,
-    getDataRedirectPath: '/'
+    error: false
 };
 
 const getDataStart = (state) => {
@@ -17,17 +17,38 @@ const getDataSuccess = (state, action) => {
     return updateObject(state, { 
         error: null, 
         loading: false,
-        token: action.idToken,
-        userId: action.userId
+        data: action.payload.data,
+        monthData: action.payload.monthData,
+        selectedMonth: action.payload.selectedMonth
     });
 };
 
 const getDataFailed = (state, action) => {
     return updateObject(state, {
         loading:false, 
-        error: action.error
+        error: action.payload
     });
 };
+
+const setMonthDataStart = (state) => {
+    return updateObject(state, {error: null, loading:true});
+}
+
+const setMonthDataSuccess = (state, action) => {
+    return updateObject(state, { 
+        error: null, 
+        loading: false,
+        selectedMonth: action.payload.selectedMonth,
+        monthData: action.payload.monthData
+    });
+}
+
+const setMonthDataFailed = (state, action) => {
+    return updateObject(state, {
+        loading:false, 
+        error: action.error
+    });           
+}
 
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +56,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.GET_DATA_START:return getDataStart(state);
         case actionTypes.GET_DATA_SUCCESS: return getDataSuccess(state,action);
         case actionTypes.GET_DATA_FAILED: return getDataFailed(state, action);
+        case actionTypes.SET_MONTH_DATA_START: return setMonthDataStart(state);
+        case actionTypes.SET_MONTH_DATA_SUCCESS: return setMonthDataSuccess(state, action);
+        case actionTypes.SET_MONTH_DATA_FAILED: return setMonthDataFailed(state, action);
         default: return state;
     }
 
